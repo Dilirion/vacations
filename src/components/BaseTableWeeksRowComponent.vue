@@ -1,8 +1,8 @@
 <template>
-<tbody>
+<tbody class="d-flex flex-column w-100">
     <tr v-if="allWeeks.length" class="d-flex justify-content-center">
-        <td class="border-start border-end border-bottom" v-for="week in month.weeks" :key="week">
-            <div class="rotate"> {{allWeeks[week-1].dates}} </div>
+        <td class="border-start border-end border-bottom rotate" v-for="week in month.weeks" style="width: 100%;" :key="week">
+            <div> {{allWeeks[week-1].dates}} </div>
         </td>
     </tr>
     <tr class="d-flex justify-content-center">
@@ -45,12 +45,14 @@ export default {
 </script>
 
 <style scoped>
- .rotate {
-  transform: rotate(-90deg);
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); 
-}  
+td.rotate {
+  height: 110px; 
+  white-space: nowrap;
+}
+td.rotate > div {
+  transform: translate(0px, 60px) rotate(-90deg);
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
 </style>
